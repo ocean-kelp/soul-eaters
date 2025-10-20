@@ -28,4 +28,11 @@ feature/subfeature structure:
 
 each of those files are optional, only include each of them if needed.
 
+**IMPORTANT MODULE PATTERN:**
+- When a module grows complex and needs to be split into multiple files, create a DIRECTORY with the module name containing a `mod.rs` file
+- NEVER have both `module_name.rs` and `module_name/mod.rs` - this causes Rust compilation errors
+- Always use the directory + mod.rs pattern for complex modules (e.g., `player/model/mod.rs` NOT `player/model.rs`)
+- The mod.rs file should re-export public items and organize submodules cleanly
+- Example: `src/player/model/` contains `mod.rs` (main), `body.rs`, `limbs.rs`, `head.rs`
+
 Register a father plugin per main module, for example the UI is a main module, so register a plugin that registers all UI features/subfeatures plugins inside it. Then register that main module plugin in the game main.rs file.
