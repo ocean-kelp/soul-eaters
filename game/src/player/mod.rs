@@ -7,6 +7,7 @@ use crate::states::GameState;
 // feature files
 pub mod components;
 pub mod systems;
+pub mod model;
 
 // feature plugin
 
